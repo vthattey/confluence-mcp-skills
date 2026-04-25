@@ -1,0 +1,17 @@
+{
+  "name": "meeting_notes",
+  "description": "Standard meeting notes template with agenda, decisions, and action items.",
+  "created_at": "2026-04-24T00:00:00+00:00",
+  "source_page_id": null,
+  "variables": [
+    { "name": "meeting_title",  "description": "Meeting title",                    "required": true,  "default": "" },
+    { "name": "meeting_date",   "description": "Date (YYYY-MM-DD)",                "required": true,  "default": "" },
+    { "name": "attendees",      "description": "Comma-separated attendee names",   "required": true,  "default": "" },
+    { "name": "facilitator",    "description": "Meeting facilitator name",         "required": false, "default": "" },
+    { "name": "agenda",         "description": "Agenda items as HTML list",        "required": true,  "default": "<li>Item 1</li>" },
+    { "name": "decisions",      "description": "Decisions made as HTML list",      "required": false, "default": "<li>No decisions recorded</li>" },
+    { "name": "action_items",   "description": "Action item rows as HTML <tr> elements", "required": false, "default": "<tr><td>-</td><td>-</td><td>-</td></tr>" },
+    { "name": "next_meeting",   "description": "Date of next meeting (YYYY-MM-DD)","required": false, "default": "TBD" }
+  ],
+  "body": "<h1>{{ meeting_title }}</h1>\n<p><strong>Date:</strong> {{ meeting_date }}<br/>\n<strong>Facilitator:</strong> {{ facilitator }}<br/>\n<strong>Attendees:</strong> {{ attendees }}</p>\n<hr/>\n\n<h2>Agenda</h2>\n<ul>{{ agenda }}</ul>\n\n<h2>Discussion Notes</h2>\n<p><em>Notes to be filled in during the meeting.</em></p>\n\n<h2>Decisions</h2>\n<ul>{{ decisions }}</ul>\n\n<h2>Action Items</h2>\n<table>\n  <tbody>\n    <tr><th>Action</th><th>Owner</th><th>Due Date</th></tr>\n    {{ action_items }}\n  </tbody>\n</table>\n\n<h2>Next Meeting</h2>\n<p>{{ next_meeting }}</p>"
+}
